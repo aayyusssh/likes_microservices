@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_HOST=mongodb
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
